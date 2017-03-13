@@ -1,0 +1,16 @@
+name: SaveDeathInventory
+main: me.abcric.bukkit.savedeathinventory.SaveDeathInventory
+version: 0.1
+author: ABCRic
+commands:
+  restore:
+    description: Restores your inventory after death
+    usage: /restore
+permissions:
+  SaveDeathInventory.restore:
+    description: Allows the user to buy their inventory restoration
+    default: true
+  SaveDeathInventory.restore.free:
+    description: Allows the user to restore their inventory after death for free
+  SaveDeathInventory.restore.others:
+    description: Allows the user to restore others' inventories
