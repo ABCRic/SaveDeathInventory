@@ -10,9 +10,4 @@ public class SaveDeathInventory extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new SaveDeathInventoryListener(this), this);
 		getLogger().info("Enabled.");
 	}
-
-	@Override
-	public void onDisable() {
-		
-	} 
 }
