@@ -63,7 +63,7 @@ public class SaveDeathInventoryListener implements Listener {
 		if(p.hasPermission("SaveDeathInventory.restore.free") || (p.hasPermission("SaveDeathInventory.restore") && restorePrice <= 0)) {
 			p.sendMessage(ChatColor.GREEN + "Use /restore to get your inventory back.");
 		} else if(p.hasPermission("SaveDeathInventory.restore") && restorePrice > 0) {
-			p.sendMessage(ChatColor.GREEN + "Use /restore to get your inventory back for " + restorePrice + ".");
+			p.sendMessage(ChatColor.GREEN + "Use /restore to get your inventory back for " + plugin.eco.format(restorePrice) + ".");
 		}
 	}
 }
