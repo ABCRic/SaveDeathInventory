@@ -12,5 +12,6 @@ permissions:
     default: true
   SaveDeathInventory.restore.free:
     description: Allows the user to restore their inventory after death for free
+    default: false
   SaveDeathInventory.restore.others:
     description: Allows the user to restore others' inventories
