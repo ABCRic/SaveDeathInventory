@@ -5,14 +5,18 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 
 public class SaveDeathInventoryListener implements Listener {
 	SaveDeathInventory plugin;
+	
+	double restorePrice = 100; // TODO (placeholder value)
 
 	public SaveDeathInventoryListener(SaveDeathInventory plugin) {
 		this.plugin = plugin;
@@ -49,6 +53,17 @@ public class SaveDeathInventoryListener implements Listener {
 		} catch (IOException e) {
 			plugin.getLogger().severe("Could not save player inventory to file " + filename + ": " + e.getMessage());
 			e.printStackTrace();
+		}
+	}
+	
+	@EventHandler
+	public void onPlayerRespawn(PlayerRespawnEvent event) {
+		Player p = event.getPlayer();
+		
+		if(p.hasPermission("SaveDeathInventory.restore.free") || (p.hasPermission("SaveDeathInventory.restore") && restorePrice <= 0)) {
+			p.sendMessage(ChatColor.GREEN + "Use /restore to get your inventory back.");
+		} else if(p.hasPermission("SaveDeathInventory.restore") && restorePrice > 0) {
+			p.sendMessage(ChatColor.GREEN + "Use /restore to get your inventory back for " + restorePrice + ".");
 		}
 	}
 }
