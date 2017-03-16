@@ -7,6 +7,7 @@ import net.milkbowl.vault.economy.Economy;
 
 public class SaveDeathInventory extends JavaPlugin {
 	public Economy eco; // Economy instance for money operations
+	double restorePrice = 100; // TODO (placeholder value)
 	
 	@Override
 	public void onEnable() {
